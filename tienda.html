@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda | RM Fragancias y Envases</title>
+    <!-- Tailwind CSS (CDN for agility) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rm-green': '#006039',
+                        'rm-bg': '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Base styles */
+        body {
+            background-color: #F9FAFB;
+            color: #000000;
+        }
+
+        /* Product Card Hover Effect */
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="antialiased flex flex-col min-h-screen">
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-rm-green shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html">
+                        <img class="h-12 w-auto" src="rm-isologo.png" alt="RM Fragancias y Envases" style="filter: brightness(0) invert(1);">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">INICIO</a>
+                    <!-- Active state for TIENDA: slightly different text color or border (e.g. underline) -->
+                    <a href="tienda.html" class="text-green-200 border-b-2 border-green-200 px-3 py-2 text-sm font-medium transition-colors">TIENDA</a>
+                    <a href="#" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">PROPUESTA</a>
+                    <a href="#" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">MANUAL DE MARCA</a>
+
+                    <!-- WhatsApp Icon -->
+                    <a href="#" class="text-white hover:text-green-400 transition-colors">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <a href="#" class="text-white hover:text-green-400 mr-4">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </a>
+                    <button type="button" class="text-white hover:text-gray-200 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-rm-green border-t border-green-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">INICIO</a>
+                <a href="tienda.html" class="bg-green-800 text-white block px-3 py-2 rounded-md text-base font-medium">TIENDA</a>
+                <a href="#" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">PROPUESTA</a>
+                <a href="#" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">MANUAL DE MARCA</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Mini Hero Section -->
+        <section class="bg-gray-100 py-16 relative overflow-hidden">
+            <!-- Decorative background element -->
+            <div class="absolute inset-0 opacity-5 pointer-events-none flex justify-center items-center">
+                <img src="rm-logo1.png" alt="RM Background" class="max-w-full max-h-full object-cover grayscale">
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-4">Nuestra Tienda</h1>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explora nuestra colección de envases premium y fragancias exclusivas diseñadas para elevar tu marca.</p>
+            </div>
+        </section>
+
+        <!-- Quick Filters Sticky Bar -->
+        <div class="bg-white border-b border-gray-200 sticky top-20 z-40 shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-center space-x-8 py-4">
+                    <a href="#fragancias" class="text-gray-600 hover:text-rm-green font-medium transition-colors border-b-2 border-transparent hover:border-rm-green pb-1">
+                        Fragancias
+                    </a>
+                    <a href="#frascos" class="text-gray-600 hover:text-rm-green font-medium transition-colors border-b-2 border-transparent hover:border-rm-green pb-1">
+                        Frascos y Envases
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catálogo de Fragancias -->
+        <section id="fragancias" class="py-20 scroll-mt-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Catálogo de Fragancias</h2>
+                    <div class="h-1 w-24 bg-rm-green mx-auto rounded"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Product 1 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400&h=400" alt="Noir Absolu" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Noir Absolu</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Esencia Maderosa</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400&h=400" alt="Rose Elegance" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Rose Elegance</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Floral Premium</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&q=80&w=400&h=400" alt="Oud Supreme" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Oud Supreme</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Oriental Intenso</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&q=80&w=400&h=400" alt="Aqua Marine" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Aqua Marine</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Cítrico Fresco</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&q=80&w=400&h=400" alt="Vanilla Bloom" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Vanilla Bloom</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Dulce Gourmand</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1616949755610-8c9bbc08f138?auto=format&fit=crop&q=80&w=400&h=400" alt="Midnight Musk" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Midnight Musk</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Almizcle Selecto</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Catálogo de Frascos y Envases -->
+        <section id="frascos" class="py-20 bg-white scroll-mt-32">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Catálogo de Frascos y Envases</h2>
+                    <div class="h-1 w-24 bg-rm-green mx-auto rounded"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    <!-- Product 1 (Sultan) -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="sultan.png" alt="Envase Sultan" class="product-image object-contain h-full w-full transition-transform duration-500 drop-shadow-lg">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Sultan 50ml</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Vidrio Premium Transparente</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=400&h=400" alt="Cilindro Classic" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Cilindro Classic 100ml</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Diseño Minimalista</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&q=80&w=400&h=400" alt="Square Elegance" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Square Elegance 30ml</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Vidrio Esmerilado</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1558522195-e1201b090344?auto=format&fit=crop&q=80&w=400&h=400" alt="Oval Drop" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Oval Drop 75ml</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Líneas Curvas Suaves</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&q=80&w=400&h=400" alt="Travel Atomizer" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Travel Atomizer 15ml</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Aluminio Recargable</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden group flex flex-col h-full border border-gray-100">
+                        <div class="relative bg-gray-50 pt-8 pb-8 px-4 flex justify-center items-center overflow-hidden h-64">
+                            <img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e?auto=format&fit=crop&q=80&w=400&h=400" alt="Deco Vintage" class="product-image object-contain h-full w-full transition-transform duration-500">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow text-center">
+                            <h3 class="text-lg font-bold text-gray-900 mb-1">Deco Vintage 50ml</h3>
+                            <p class="text-sm text-gray-500 mb-4 flex-grow">Cristal Tallado a Mano</p>
+                            <div class="flex justify-between items-center mt-auto">
+                                <span class="text-xl font-semibold text-gray-900">Consultar</span>
+                                <button class="bg-rm-green text-white p-2 px-6 rounded-full hover:bg-green-800 transition-colors shadow-sm font-medium text-sm flex items-center justify-center space-x-2">
+                                    <span>Comprar</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="rm-logo1.png" alt="RM Logo" class="h-10 opacity-50" style="filter: brightness(0) invert(1);">
+                </div>
+
+                <div class="text-center md:text-left text-gray-400 text-sm mb-6 md:mb-0">
+                    <p>&copy; 2024 RM Fragancias y Envases. Todos los derechos reservados.</p>
+                    <p class="mt-1">Contacto: info@rmfragancias.com | Tel: +123 456 7890</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
