@@ -45,32 +45,45 @@
         }
 
         .logo-container {
-            display: flex;
-            align-items: center;
+            position: relative;
             height: 120px;
+            /* Aspect ratio of the original images is 2000/1446 = 1.383 */
+            width: 166px;
+            overflow: hidden;
+        }
+
+        .logo-r, .logo-m {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            /* Use a block display and avoid object-fit which can recenter depending on transparent boundaries */
+            display: block;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
         }
 
         .logo-r {
-            height: 100%;
+            /* Full image as background, ensure it covers exactly */
+            background-image: url('ralone.png');
             /* Filter to turn the green R white */
             filter: brightness(0) invert(1);
         }
 
         .logo-m {
-            height: 100%;
+            background-image: url('malone.png');
             /* Slide in animation from right */
-            transform: translateX(50vw);
-            animation: slideInM 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            transform: translateX(100%);
+            animation: slideInM 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
         @keyframes slideInM {
             0% {
-                transform: translateX(50vw);
-                opacity: 0;
+                transform: translateX(100%);
             }
             100% {
                 transform: translateX(0);
-                opacity: 1;
             }
         }
     </style>
@@ -79,8 +92,8 @@
     <!-- Preloader -->
     <div id="preloader">
         <div class="logo-container">
-            <img src="ralone.png" alt="R" class="logo-r">
-            <img src="malone.png" alt="M" class="logo-m">
+            <div class="logo-r"></div>
+            <div class="logo-m"></div>
         </div>
     </div>
 
@@ -285,12 +298,12 @@
     <script>
         // Preloader Logic
         window.addEventListener('load', () => {
-            // Wait for the animation to finish (1.5s + a tiny buffer)
+            // Wait for the animation to finish (0.6s + a small buffer)
             setTimeout(() => {
                 const preloader = document.getElementById('preloader');
                 preloader.classList.add('preloader-hidden');
                 document.body.classList.remove('overflow-hidden');
-            }, 2000);
+            }, 1000);
         });
     </script>
 </body>

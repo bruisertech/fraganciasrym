@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  .logo-container {
+      position: relative;
+      height: 120px;
+      width: 166px;
+      overflow: hidden;
+      border: 1px solid black;
+  }
+  .logo-r, .logo-m {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .logo-r { background-image: url('ralone.png'); opacity: 0.5; }
+  .logo-m { background-image: url('malone.png'); opacity: 0.5; }
+</style>
+</head>
+<body>
+  <div class="logo-container">
+      <div class="logo-r"></div>
+      <div class="logo-m"></div>
+  </div>
+</body>
+</html>

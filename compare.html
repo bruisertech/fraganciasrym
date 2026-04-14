@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body { background: #FFFFFF; display: flex; gap: 20px; }
+  .logo-container {
+      position: relative;
+      height: 120px;
+      width: 166px;
+      overflow: hidden;
+      border: 1px solid red;
+      background: #ccc;
+  }
+  .logo-r, .logo-m {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+  }
+  .logo-r { background-image: url('ralone.png'); filter: brightness(0) invert(1); }
+  .logo-m { background-image: url('malone.png'); }
+
+  .real-logo {
+      height: 120px;
+      width: 166px;
+      border: 1px solid yellow;
+      background: url('rm-logo1.png') center/contain no-repeat;
+  }
+</style>
+</head>
+<body>
+  <div class="logo-container">
+      <div class="logo-r"></div>
+      <div class="logo-m"></div>
+  </div>
+  <div class="real-logo"></div>
+</body>
+</html>
