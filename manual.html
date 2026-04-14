@@ -355,13 +355,19 @@
                 <!-- Primario -->
                 <h3 class="text-xl font-bold text-gray-900 mb-6 font-sans uppercase tracking-widest text-sm text-gray-500">Color Principal</h3>
                 <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 mb-12 flex flex-col md:flex-row">
-                    <div class="md:w-1/2 h-48 md:h-auto bg-rm-green flex items-center justify-center">
-                        <span class="text-white font-bold text-2xl tracking-widest">RM GREEN</span>
+                    <div class="md:w-1/2 h-48 md:h-auto bg-rm-green flex items-center justify-center cursor-pointer group relative" onclick="copyToClipboard('#006039', this)">
+                        <span class="text-white font-bold text-2xl tracking-widest group-hover:scale-110 transition-transform">RM GREEN</span>
+                        <div class="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white font-medium bg-black/50 px-4 py-2 rounded-full">Click para copiar HEX</span>
+                        </div>
                     </div>
                     <div class="md:w-1/2 p-8 md:p-12">
-                        <div class="mb-6">
+                        <div class="mb-6 cursor-pointer group inline-block" onclick="copyToClipboard('#006039', this)">
                             <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">HEX</p>
-                            <p class="text-3xl font-mono font-bold text-gray-900">#006039</p>
+                            <div class="flex items-center gap-3">
+                                <p class="text-3xl font-mono font-bold text-gray-900">#006039</p>
+                                <svg class="w-5 h-5 text-gray-400 group-hover:text-rm-green transition-colors opacity-0 group-hover:opacity-100" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                            </div>
                         </div>
                         <div class="grid grid-cols-2 gap-6">
                             <div>
@@ -384,11 +390,15 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Gold -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
-                        <div class="h-32 bg-rm-gold flex items-end p-4 transition-transform group-hover:scale-105 origin-bottom"></div>
+                        <div class="h-32 bg-rm-gold flex items-center justify-center p-4 transition-transform group-hover:scale-105 origin-bottom cursor-pointer relative" onclick="copyToClipboard('#D4AF37', this)">
+                            <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="text-white text-xs font-medium bg-black/50 px-3 py-1 rounded-full">Copiar</span>
+                            </div>
+                        </div>
                         <div class="p-6 relative bg-white">
                             <h4 class="font-bold text-gray-900 mb-4">Gold Accent</h4>
                             <ul class="space-y-2 text-sm">
-                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#D4AF37</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 cursor-pointer hover:text-rm-green" onclick="copyToClipboard('#D4AF37', this)"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#D4AF37</span></li>
                                 <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">RGB</span> <span class="font-mono font-medium">212, 175, 55</span></li>
                                 <li class="flex justify-between pb-1"><span class="text-gray-500">Uso</span> <span class="text-right">Detalles premium,<br>bordes, iconos VIP.</span></li>
                             </ul>
@@ -396,11 +406,15 @@
                     </div>
                     <!-- Silver/Grey -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
-                        <div class="h-32 bg-rm-bg border-b border-gray-200 flex items-end p-4 transition-transform group-hover:scale-105 origin-bottom"></div>
+                        <div class="h-32 bg-rm-bg border-b border-gray-200 flex items-center justify-center p-4 transition-transform group-hover:scale-105 origin-bottom cursor-pointer relative" onclick="copyToClipboard('#F9FAFB', this)">
+                            <div class="absolute inset-0 bg-black/5 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="text-gray-800 text-xs font-medium bg-white/80 px-3 py-1 rounded-full shadow-sm">Copiar</span>
+                            </div>
+                        </div>
                         <div class="p-6 relative bg-white">
                             <h4 class="font-bold text-gray-900 mb-4">Light Grey Base</h4>
                             <ul class="space-y-2 text-sm">
-                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#F9FAFB</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 cursor-pointer hover:text-rm-green" onclick="copyToClipboard('#F9FAFB', this)"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#F9FAFB</span></li>
                                 <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">RGB</span> <span class="font-mono font-medium">249, 250, 251</span></li>
                                 <li class="flex justify-between pb-1"><span class="text-gray-500">Uso</span> <span class="text-right">Fondos de sección,<br>paneles de tarjetas.</span></li>
                             </ul>
@@ -408,11 +422,15 @@
                     </div>
                     <!-- Dark Text -->
                     <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
-                        <div class="h-32 bg-rm-dark flex items-end p-4 transition-transform group-hover:scale-105 origin-bottom"></div>
+                        <div class="h-32 bg-rm-dark flex items-center justify-center p-4 transition-transform group-hover:scale-105 origin-bottom cursor-pointer relative" onclick="copyToClipboard('#111827', this)">
+                            <div class="absolute inset-0 bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                <span class="text-white text-xs font-medium bg-black/80 px-3 py-1 rounded-full">Copiar</span>
+                            </div>
+                        </div>
                         <div class="p-6 relative bg-white">
                             <h4 class="font-bold text-gray-900 mb-4">Dark Content</h4>
                             <ul class="space-y-2 text-sm">
-                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#111827</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1 cursor-pointer hover:text-rm-green" onclick="copyToClipboard('#111827', this)"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#111827</span></li>
                                 <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">RGB</span> <span class="font-mono font-medium">17, 24, 39</span></li>
                                 <li class="flex justify-between pb-1"><span class="text-gray-500">Uso</span> <span class="text-right">Texto principal,<br>footers.</span></li>
                             </ul>
@@ -422,8 +440,52 @@
             </div>
         </section>
 
+        <!-- Brand Voice -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Voz de Marca</h2>
+                    <p class="text-gray-600">
+                        Cómo nos expresamos es tan importante como cómo nos vemos. Nuestra voz debe reflejar los pilares de la marca en cada mensaje, desde un correo B2B hasta un post en Instagram.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Tono Profesional -->
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-rm-green rounded-bl-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                        <h3 class="text-2xl font-serif text-gray-900 mb-4">Profesional</h3>
+                        <p class="text-gray-600 text-sm mb-4">Hablamos con autoridad, precisión y conocimiento profundo del sector. Demostramos que somos expertos en envases y soluciones B2B.</p>
+                        <div class="bg-white p-4 rounded text-sm italic text-gray-500 border-l-4 border-rm-green shadow-inner">
+                            "Nuestros envases de vidrio premium garantizan la preservación de su esencia..."
+                        </div>
+                    </div>
+
+                    <!-- Tono Cercano -->
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-rm-gold rounded-bl-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                        <h3 class="text-2xl font-serif text-gray-900 mb-4">Cercano</h3>
+                        <p class="text-gray-600 text-sm mb-4">Aunque somos corporativos, tratamos con personas. Somos empáticos, solucionadores de problemas y constructores de relaciones a largo plazo.</p>
+                        <div class="bg-white p-4 rounded text-sm italic text-gray-500 border-l-4 border-rm-gold shadow-inner">
+                            "Estamos aquí para ayudarle a encontrar el envase perfecto que su marca merece."
+                        </div>
+                    </div>
+
+                    <!-- Tono Exclusivo -->
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-shadow">
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-gray-900 rounded-bl-full opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                        <h3 class="text-2xl font-serif text-gray-900 mb-4">Exclusivo</h3>
+                        <p class="text-gray-600 text-sm mb-4">Inspiramos lujo y alta gama sin ser arrogantes. El lenguaje debe evocar calidad superior, diseño y aspiración.</p>
+                        <div class="bg-white p-4 rounded text-sm italic text-gray-500 border-l-4 border-gray-900 shadow-inner">
+                            "Eleve la percepción de su fragancia con acabados esmerilados y líneas perfectas."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Typography -->
-        <section class="py-20 bg-white">
+        <section class="py-20 bg-rm-bg">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl font-bold text-gray-900 mb-4">Tipografía</h2>
@@ -442,9 +504,19 @@
                             <p class="text-sm text-rm-green font-bold uppercase tracking-wider mb-2">Títulos & Destacados</p>
                             <h3 class="text-3xl font-serif text-gray-900 mb-4">Playfair Display</h3>
                             <div class="space-y-4 mb-8">
-                                <p class="text-4xl font-serif font-bold text-gray-900">Elegancia B2B</p>
-                                <p class="text-2xl font-serif italic text-gray-800">Frascos de Alta Gama</p>
-                                <p class="text-xl font-serif text-gray-700">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+                                <div>
+                                    <span class="text-xs text-gray-400 block mb-1">Bold (700)</span>
+                                    <p class="text-4xl font-serif font-bold text-gray-900">Elegancia B2B</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block mb-1">Regular (400) - Italic</span>
+                                    <p class="text-2xl font-serif italic text-gray-800">Frascos de Alta Gama</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block mb-1">Light (300)</span>
+                                    <p class="text-xl font-serif font-light text-gray-700">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+                                    <p class="text-xl font-serif font-light text-gray-700">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+                                </div>
                                 <p class="text-xl font-serif text-gray-700">0 1 2 3 4 5 6 7 8 9 & @ # % * ! ?</p>
                             </div>
                             <p class="text-sm text-gray-500 bg-gray-50 p-4 rounded border border-gray-100">
@@ -462,14 +534,83 @@
                             <p class="text-sm text-rm-green font-bold uppercase tracking-wider mb-2 font-sans">Cuerpo de Texto & UI</p>
                             <h3 class="text-3xl font-sans font-bold text-gray-900 mb-4">Inter</h3>
                             <div class="space-y-4 mb-8">
-                                <p class="text-2xl font-sans font-bold text-gray-900">Soluciones Integrales</p>
-                                <p class="text-lg font-sans font-medium text-gray-800">Envases para perfumería</p>
-                                <p class="text-base font-sans text-gray-700">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+                                <div>
+                                    <span class="text-xs text-gray-400 block mb-1">Bold (700)</span>
+                                    <p class="text-2xl font-sans font-bold text-gray-900">Soluciones Integrales</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block mb-1">Medium (500)</span>
+                                    <p class="text-lg font-sans font-medium text-gray-800">Envases para perfumería</p>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-gray-400 block mb-1">Regular (400)</span>
+                                    <p class="text-base font-sans text-gray-700">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+                                    <p class="text-base font-sans text-gray-700">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+                                </div>
                                 <p class="text-base font-sans text-gray-700">0 1 2 3 4 5 6 7 8 9 & @ # % * ! ?</p>
                             </div>
                             <p class="text-sm text-gray-500 bg-gray-50 p-4 rounded border border-gray-100">
                                 Altamente legible en pantallas. Se usa para descripciones de productos, menús de navegación, botones y textos largos.
                             </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Iconography -->
+        <section class="py-20 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Iconografía</h2>
+                    <p class="text-gray-600">
+                        Los iconos son representaciones visuales de conceptos. Nuestro estilo es lineal, elegante y minimalista. Todos los iconos deben usar un grosor de línea (stroke) consistente, preferiblemente de 1.5px a 2px.
+                    </p>
+                </div>
+
+                <div class="bg-gray-50 rounded-2xl p-12 border border-gray-200">
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 text-center">
+                        <!-- Icon 1 -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-16 h-16 rounded-full bg-white shadow-sm border border-gray-200 flex items-center justify-center text-rm-green mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
+                            </div>
+                            <span class="text-xs font-medium text-gray-600">Envases</span>
+                        </div>
+                        <!-- Icon 2 -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-16 h-16 rounded-full bg-white shadow-sm border border-gray-200 flex items-center justify-center text-rm-green mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            </div>
+                            <span class="text-xs font-medium text-gray-600">Fragancias</span>
+                        </div>
+                        <!-- Icon 3 -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-16 h-16 rounded-full bg-white shadow-sm border border-gray-200 flex items-center justify-center text-rm-green mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <span class="text-xs font-medium text-gray-600">B2B</span>
+                        </div>
+                        <!-- Icon 4 -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-16 h-16 rounded-full bg-white shadow-sm border border-gray-200 flex items-center justify-center text-rm-green mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <span class="text-xs font-medium text-gray-600">Calidad</span>
+                        </div>
+                        <!-- Icon 5 -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-16 h-16 rounded-full bg-white shadow-sm border border-gray-200 flex items-center justify-center text-rm-green mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                            </div>
+                            <span class="text-xs font-medium text-gray-600">Rapidez</span>
+                        </div>
+                        <!-- Icon 6 -->
+                        <div class="flex flex-col items-center group">
+                            <div class="w-16 h-16 rounded-full bg-white shadow-sm border border-gray-200 flex items-center justify-center text-rm-green mb-4 group-hover:scale-110 group-hover:shadow-md transition-all">
+                                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <span class="text-xs font-medium text-gray-600">Soporte</span>
                         </div>
                     </div>
                 </div>
@@ -575,9 +716,16 @@
                     <img src="rm-logo1.png" alt="RM Logo" class="h-10 opacity-50" style="filter: brightness(0) invert(1);">
                 </div>
 
-                <div class="text-center md:text-left text-gray-400 text-sm mb-6 md:mb-0">
-                    <p>&copy; 2024 RM Fragancias y Envases. Todos los derechos reservados.</p>
-                    <p class="mt-1">Contacto: info@rmfragancias.com | Tel: +123 456 7890</p>
+                <div class="text-center md:text-left text-gray-400 text-sm mb-6 md:mb-0 w-full md:w-auto">
+                    <p>&copy; 2024 - 2026 RM Fragancias y Envases. Todos los derechos reservados.</p>
+                    <p class="mt-2 text-xs text-gray-500 font-light">Desarrollado con precisión por Bruiser Tech</p>
+                    <div class="mt-4 flex flex-wrap gap-4 text-xs">
+                        <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="#" class="hover:text-white transition-colors">Términos de Servicio</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="#" class="hover:text-white transition-colors">Garantía de Calidad</a>
+                    </div>
                 </div>
 
                 <div class="flex space-x-6">
@@ -599,6 +747,20 @@
     </footer>
 
     <script>
+        // Copy to clipboard logic
+        function copyToClipboard(text, element) {
+            navigator.clipboard.writeText(text).then(() => {
+                const tooltip = element.querySelector('span:last-child');
+                const originalText = tooltip.innerText;
+                tooltip.innerText = '¡Copiado!';
+                tooltip.classList.add('bg-rm-green');
+                setTimeout(() => {
+                    tooltip.innerText = originalText;
+                    tooltip.classList.remove('bg-rm-green');
+                }, 2000);
+            });
+        }
+
         // Preloader Logic
         window.addEventListener('load', () => {
             setTimeout(() => {
@@ -608,5 +770,12 @@
             }, 1000); // 0.6s animation + buffer
         });
     </script>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/573053862774" target="_blank" class="fixed bottom-6 right-6 bg-rm-green text-white p-4 rounded-full shadow-2xl hover:bg-green-800 hover:scale-110 transition-all z-50 flex items-center group cursor-pointer border border-green-700">
+        <span class="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs group-hover:mr-3 transition-all duration-300 ease-in-out text-sm font-medium">Habla con un asesor</span>
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    </a>
+
 </body>
 </html>
