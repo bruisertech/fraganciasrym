@@ -26,15 +26,80 @@
         body {
             background-color: #F9FAFB;
             color: #000000;
+            overflow-x: hidden;
         }
 
         /* Product Card Hover Effect */
         .product-card:hover .product-image {
             transform: scale(1.05);
         }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        .preloader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .logo-container {
+            position: relative;
+            height: 120px;
+            width: 166px;
+            overflow: hidden;
+        }
+
+        .logo-r, .logo-m {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: block;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .logo-r {
+            background-image: url('ralone.png');
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-m {
+            background-image: url('malone.png');
+            transform: translateX(100%);
+            animation: slideInM 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes slideInM {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
     </style>
 </head>
-<body class="antialiased flex flex-col min-h-screen">
+<body class="antialiased flex flex-col min-h-screen overflow-hidden">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="logo-container">
+            <div class="logo-r"></div>
+            <div class="logo-m"></div>
+        </div>
+    </div>
+
     <!-- Sticky Header -->
     <header class="sticky top-0 z-50 bg-rm-green shadow-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +117,7 @@
                     <!-- Active state for TIENDA: slightly different text color or border (e.g. underline) -->
                     <a href="tienda.html" class="text-green-200 border-b-2 border-green-200 px-3 py-2 text-sm font-medium transition-colors">TIENDA</a>
                     <a href="propuesta.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">PROPUESTA</a>
-                    <a href="#" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">MANUAL DE MARCA</a>
+                    <a href="manual.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">MANUAL DE MARCA</a>
 
                     <!-- WhatsApp Icon -->
                     <a href="#" class="text-white hover:text-green-400 transition-colors">
@@ -85,7 +150,7 @@
                 <a href="index.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">INICIO</a>
                 <a href="tienda.html" class="bg-green-800 text-white block px-3 py-2 rounded-md text-base font-medium">TIENDA</a>
                 <a href="propuesta.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">PROPUESTA</a>
-                <a href="#" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">MANUAL DE MARCA</a>
+                <a href="manual.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">MANUAL DE MARCA</a>
             </div>
         </div>
     </header>
@@ -110,7 +175,7 @@
                     <a href="#fragancias" class="text-gray-600 hover:text-rm-green font-medium transition-colors border-b-2 border-transparent hover:border-rm-green pb-1">
                         Fragancias
                     </a>
-                    <a href="#frascos" class="text-gray-600 hover:text-rm-green font-medium transition-colors border-b-2 border-transparent hover:border-rm-green pb-1">
+                    <a href="#envases" class="text-gray-600 hover:text-rm-green font-medium transition-colors border-b-2 border-transparent hover:border-rm-green pb-1">
                         Frascos y Envases
                     </a>
                 </div>
@@ -118,7 +183,7 @@
         </div>
 
         <!-- Catálogo de Fragancias -->
-        <section id="fragancias" class="py-20 scroll-mt-32">
+        <section id="fragancias" class="py-20 bg-white pt-24 -mt-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Catálogo de Fragancias</h2>
@@ -232,7 +297,7 @@
         </section>
 
         <!-- Catálogo de Frascos y Envases -->
-        <section id="frascos" class="py-20 bg-white scroll-mt-32">
+        <section id="envases" class="py-20 bg-white scroll-mt-32 pt-24 -mt-24">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16">
                     <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Catálogo de Frascos y Envases</h2>
@@ -376,5 +441,18 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.classList.add('preloader-hidden');
+                    document.body.classList.remove('overflow-hidden');
+                }
+            }, 1000); // 0.5s animation + buffer
+        });
+    </script>
 </body>
 </html>

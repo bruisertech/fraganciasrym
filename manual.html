@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Marca | RM Fragancias y Envases</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rm-green': '#006039',
+                        'rm-bg': '#F9FAFB',
+                        'rm-gold': '#D4AF37',
+                        'rm-silver': '#C0C0C0',
+                        'rm-dark': '#111827'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Playfair Display', 'Merriweather', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* CSS reset and base styles */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #F9FAFB;
+            color: #111827;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.5s ease-out, visibility 0.5s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        .preloader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .logo-container {
+            position: relative;
+            height: 120px;
+            width: 166px;
+            overflow: hidden;
+        }
+
+        .logo-r, .logo-m {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            display: block;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .logo-r {
+            background-image: url('ralone.png');
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-m {
+            background-image: url('malone.png');
+            transform: translateX(100%);
+            animation: slideInM 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes slideInM {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Diagonal stripes pattern */
+        .bg-pattern-stripes {
+            background-image: linear-gradient(45deg, rgba(0,0,0,0.05) 25%, transparent 25%, transparent 50%, rgba(0,0,0,0.05) 50%, rgba(0,0,0,0.05) 75%, transparent 75%, transparent);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="logo-container">
+            <div class="logo-r"></div>
+            <div class="logo-m"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-rm-green shadow-md border-b border-green-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html">
+                        <img class="h-12 w-auto" src="rm-isologo.png" alt="RM Fragancias y Envases" style="filter: brightness(0) invert(1);">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">INICIO</a>
+                    <a href="tienda.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">TIENDA</a>
+                    <a href="propuesta.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">PROPUESTA</a>
+                    <a href="manual.html" class="text-white border-b-2 border-white px-3 py-2 text-sm font-medium transition-colors">MANUAL DE MARCA</a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <button type="button" class="text-white hover:text-gray-200 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="sr-only">Abrir menú</span>
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-rm-green border-t border-green-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">INICIO</a>
+                <a href="tienda.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">TIENDA</a>
+                <a href="propuesta.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">PROPUESTA</a>
+                <a href="manual.html" class="bg-green-800 text-white block px-3 py-2 rounded-md text-base font-medium">MANUAL DE MARCA</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="bg-rm-dark text-white py-24 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <img src="rm-logo1.png" alt="" class="w-full h-full object-cover" style="filter: brightness(0) invert(1);">
+            </div>
+            <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <p class="text-rm-gold font-medium tracking-[0.2em] mb-4 text-sm uppercase">Guía de Estilo</p>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Manual de Marca</h1>
+                <p class="text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+                    La identidad visual de RM Fragancias y Envases es nuestro activo más valioso.
+                    Este documento define las bases para mantener una comunicación gráfica coherente,
+                    transmitiendo lujo, calidad y exclusividad en cada punto de contacto.
+                </p>
+            </div>
+        </section>
+
+        <!-- Brand Philosophy -->
+        <section class="py-20 bg-white border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Filosofía de la Marca</h2>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Nuestra marca se construye sobre tres pilares fundamentales que guían cada decisión de diseño, producto y comunicación. Buscamos elevar el estándar de la perfumería en Colombia.
+                        </p>
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 h-6 w-6 rounded-full bg-rm-green flex items-center justify-center text-white mt-1 mr-4 text-sm">1</span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 font-sans">Lujo Discreto</h3>
+                                    <p class="text-gray-500 mt-1">Elegancia sin estridencias. Usamos espacios en blanco, líneas limpias y composiciones equilibradas.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 h-6 w-6 rounded-full bg-rm-green flex items-center justify-center text-white mt-1 mr-4 text-sm">2</span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 font-sans">Calidad Inquebrantable</h3>
+                                    <p class="text-gray-500 mt-1">Nuestra estética refleja la solidez y excelencia de nuestros envases B2B.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="flex-shrink-0 h-6 w-6 rounded-full bg-rm-green flex items-center justify-center text-white mt-1 mr-4 text-sm">3</span>
+                                <div>
+                                    <h3 class="text-xl font-bold text-gray-900 font-sans">Exclusividad B2B</h3>
+                                    <p class="text-gray-500 mt-1">Nos dirigimos a profesionales y empresarios. El tono es corporativo, directo y aspiracional.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-rm-bg p-12 rounded-2xl flex items-center justify-center relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-rm-green opacity-0 group-hover:opacity-5 transition-opacity duration-500"></div>
+                        <img src="rm-logo1.png" alt="RM Monograma" class="w-64 max-w-full drop-shadow-xl transform group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logos & Variations -->
+        <section class="py-20 bg-rm-bg border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Logotipos y Variantes</h2>
+                    <p class="text-gray-600">
+                        El logotipo es la firma de la empresa. Debe tratarse con respeto, asegurando siempre
+                        su legibilidad y destacando su presencia.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                    <!-- Versión Principal -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
+                        <div class="flex-grow flex items-center justify-center bg-gray-50 rounded-lg p-12 mb-6 border border-gray-200">
+                            <img src="rm-isologo.png" alt="Isologo Principal" class="h-20 object-contain">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 font-sans">Isologo Principal (Completo)</h3>
+                        <p class="text-gray-500 text-sm">
+                            <code class="bg-gray-100 px-1 py-0.5 rounded text-gray-800">rm-isologo.png</code><br>
+                            Esta es la versión oficial y preferida para casi todas las aplicaciones. Contiene el monograma y la descripción de la empresa. Debe usarse siempre que el espacio horizontal lo permita.
+                        </p>
+                    </div>
+
+                    <!-- Símbolo / Monograma -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8 flex flex-col h-full">
+                        <div class="flex-grow flex items-center justify-center bg-rm-green rounded-lg p-12 mb-6 shadow-inner">
+                            <img src="rm-logo1.png" alt="Logo Monograma" class="h-24 object-contain" style="filter: brightness(0) invert(1);">
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 font-sans">Símbolo Principal / Avatar</h3>
+                        <p class="text-gray-500 text-sm">
+                            <code class="bg-gray-100 px-1 py-0.5 rounded text-gray-800">rm-logo1.png</code><br>
+                            Para avatares de redes sociales, favicons, marcas de agua corporativas o espacios donde la versión completa no sea legible. Representa el entrelazado de la R y la M.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Componentes -->
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                    <h3 class="text-xl font-bold text-gray-900 mb-6 font-sans border-b pb-4">Componentes del Monograma</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                        <div class="flex items-center space-x-6">
+                            <div class="w-32 h-32 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center p-4 relative overflow-hidden">
+                                <img src="ralone.png" alt="Letra R" class="w-full object-contain">
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">Componente R</p>
+                                <p class="text-sm text-gray-500"><code class="bg-gray-100 px-1 py-0.5 rounded">ralone.png</code></p>
+                                <p class="text-sm text-gray-400 mt-2">Base estructural del monograma animado.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6">
+                            <div class="w-32 h-32 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center p-4 relative overflow-hidden">
+                                <img src="malone.png" alt="Letra M" class="w-full object-contain">
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-900">Componente M</p>
+                                <p class="text-sm text-gray-500"><code class="bg-gray-100 px-1 py-0.5 rounded">malone.png</code></p>
+                                <p class="text-sm text-gray-400 mt-2">Elemento dinámico usado en el preloader web.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Correct/Incorrect Usage -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-4xl font-bold text-gray-900 mb-12 text-center">Normas de Uso</h2>
+
+                <!-- Area de respeto -->
+                <div class="mb-16">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-6 font-sans">Área de Respeto (Espaciado Mínimo)</h3>
+                    <div class="bg-gray-50 p-8 rounded-xl border border-gray-200 flex flex-col md:flex-row items-center justify-center gap-12">
+                        <div class="relative inline-block border-2 border-dashed border-blue-300 p-8">
+                            <!-- Indicadores de espaciado -->
+                            <div class="absolute top-2 left-1/2 -translate-x-1/2 text-blue-500 font-bold text-xs">x</div>
+                            <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-blue-500 font-bold text-xs">x</div>
+                            <div class="absolute left-2 top-1/2 -translate-y-1/2 text-blue-500 font-bold text-xs">x</div>
+                            <div class="absolute right-2 top-1/2 -translate-y-1/2 text-blue-500 font-bold text-xs">x</div>
+
+                            <img src="rm-isologo.png" alt="Logo espaciado" class="h-16">
+
+                            <!-- Caja interior -->
+                            <div class="absolute top-8 left-8 right-8 bottom-8 border border-blue-200 pointer-events-none"></div>
+                        </div>
+                        <div class="max-w-md">
+                            <p class="text-gray-600">
+                                Para garantizar la máxima visibilidad, el logotipo debe estar rodeado por un espacio libre.
+                                La medida mínima de este espacio ('x') se define por la altura de las letras "FRAGANCIAS" del propio logotipo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Usos Incorrectos -->
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 font-sans">Usos Incorrectos</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+                    <!-- Distorsión -->
+                    <div class="bg-red-50 p-6 rounded-xl border border-red-100 flex flex-col items-center text-center">
+                        <div class="h-32 flex items-center justify-center mb-4 w-full bg-white rounded border border-red-200">
+                            <img src="rm-isologo.png" alt="Distorsionado" class="h-16 w-full object-fill opacity-75">
+                        </div>
+                        <span class="text-red-500 font-bold mb-2">✕ Incorrecto</span>
+                        <p class="text-sm text-gray-700">No deformar, estirar o achatar las proporciones.</p>
+                    </div>
+                    <!-- Cambio de color -->
+                    <div class="bg-red-50 p-6 rounded-xl border border-red-100 flex flex-col items-center text-center">
+                        <div class="h-32 flex items-center justify-center mb-4 w-full bg-white rounded border border-red-200">
+                            <img src="rm-isologo.png" alt="Color Incorrecto" class="h-12 opacity-75" style="filter: hue-rotate(120deg) brightness(1.2);">
+                        </div>
+                        <span class="text-red-500 font-bold mb-2">✕ Incorrecto</span>
+                        <p class="text-sm text-gray-700">No usar colores distintos a los corporativos permitidos.</p>
+                    </div>
+                    <!-- Rotación -->
+                    <div class="bg-red-50 p-6 rounded-xl border border-red-100 flex flex-col items-center text-center">
+                        <div class="h-32 flex items-center justify-center mb-4 w-full bg-white rounded border border-red-200">
+                            <img src="rm-isologo.png" alt="Rotado" class="h-12 opacity-75 transform rotate-12">
+                        </div>
+                        <span class="text-red-500 font-bold mb-2">✕ Incorrecto</span>
+                        <p class="text-sm text-gray-700">No rotar el logotipo en ningún ángulo.</p>
+                    </div>
+                    <!-- Fondo complejo sin contraste -->
+                    <div class="bg-red-50 p-6 rounded-xl border border-red-100 flex flex-col items-center text-center">
+                        <div class="h-32 flex items-center justify-center mb-4 w-full rounded border border-red-200 bg-pattern-stripes">
+                            <img src="rm-isologo.png" alt="Fondo malo" class="h-12 opacity-90 mix-blend-multiply">
+                        </div>
+                        <span class="text-red-500 font-bold mb-2">✕ Incorrecto</span>
+                        <p class="text-sm text-gray-700">No colocar sobre fondos que dificulten la legibilidad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Palette -->
+        <section class="py-20 bg-rm-bg border-y border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Paleta de Colores</h2>
+                    <p class="text-gray-600">
+                        Nuestra paleta cromática transmite elegancia, confianza y exclusividad.
+                        El verde corporativo es el protagonista absoluto.
+                    </p>
+                </div>
+
+                <!-- Primario -->
+                <h3 class="text-xl font-bold text-gray-900 mb-6 font-sans uppercase tracking-widest text-sm text-gray-500">Color Principal</h3>
+                <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 mb-12 flex flex-col md:flex-row">
+                    <div class="md:w-1/2 h-48 md:h-auto bg-rm-green flex items-center justify-center">
+                        <span class="text-white font-bold text-2xl tracking-widest">RM GREEN</span>
+                    </div>
+                    <div class="md:w-1/2 p-8 md:p-12">
+                        <div class="mb-6">
+                            <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">HEX</p>
+                            <p class="text-3xl font-mono font-bold text-gray-900">#006039</p>
+                        </div>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">RGB</p>
+                                <p class="font-mono text-gray-800">0, 96, 57</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500 uppercase tracking-wide mb-1">CMYK</p>
+                                <p class="font-mono text-gray-800">100, 0, 41, 62</p>
+                            </div>
+                            <div class="col-span-2">
+                                <p class="text-sm text-gray-500 mt-2"><strong>Uso:</strong> Fondos de cabecera, botones de acción principal (CTA), tipografía destacada e iconografía.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secundarios -->
+                <h3 class="text-xl font-bold text-gray-900 mb-6 font-sans uppercase tracking-widest text-sm text-gray-500">Colores Secundarios y Acentos</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Gold -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
+                        <div class="h-32 bg-rm-gold flex items-end p-4 transition-transform group-hover:scale-105 origin-bottom"></div>
+                        <div class="p-6 relative bg-white">
+                            <h4 class="font-bold text-gray-900 mb-4">Gold Accent</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#D4AF37</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">RGB</span> <span class="font-mono font-medium">212, 175, 55</span></li>
+                                <li class="flex justify-between pb-1"><span class="text-gray-500">Uso</span> <span class="text-right">Detalles premium,<br>bordes, iconos VIP.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Silver/Grey -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
+                        <div class="h-32 bg-rm-bg border-b border-gray-200 flex items-end p-4 transition-transform group-hover:scale-105 origin-bottom"></div>
+                        <div class="p-6 relative bg-white">
+                            <h4 class="font-bold text-gray-900 mb-4">Light Grey Base</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#F9FAFB</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">RGB</span> <span class="font-mono font-medium">249, 250, 251</span></li>
+                                <li class="flex justify-between pb-1"><span class="text-gray-500">Uso</span> <span class="text-right">Fondos de sección,<br>paneles de tarjetas.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Dark Text -->
+                    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden group">
+                        <div class="h-32 bg-rm-dark flex items-end p-4 transition-transform group-hover:scale-105 origin-bottom"></div>
+                        <div class="p-6 relative bg-white">
+                            <h4 class="font-bold text-gray-900 mb-4">Dark Content</h4>
+                            <ul class="space-y-2 text-sm">
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">HEX</span> <span class="font-mono font-medium">#111827</span></li>
+                                <li class="flex justify-between border-b border-gray-100 pb-1"><span class="text-gray-500">RGB</span> <span class="font-mono font-medium">17, 24, 39</span></li>
+                                <li class="flex justify-between pb-1"><span class="text-gray-500">Uso</span> <span class="text-right">Texto principal,<br>footers.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold text-gray-900 mb-4">Tipografía</h2>
+                    <p class="text-gray-600">
+                        La combinación de fuentes define la voz de nuestra marca: una mezcla perfecta entre lo clásico (autoridad, lujo) y lo moderno (eficiencia, digital).
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Serif -->
+                    <div class="p-8 border border-gray-200 rounded-2xl relative overflow-hidden">
+                        <div class="absolute right-0 top-0 opacity-5 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+                            <span class="text-[200px] font-serif leading-none">Aa</span>
+                        </div>
+                        <div class="relative z-10">
+                            <p class="text-sm text-rm-green font-bold uppercase tracking-wider mb-2">Títulos & Destacados</p>
+                            <h3 class="text-3xl font-serif text-gray-900 mb-4">Playfair Display</h3>
+                            <div class="space-y-4 mb-8">
+                                <p class="text-4xl font-serif font-bold text-gray-900">Elegancia B2B</p>
+                                <p class="text-2xl font-serif italic text-gray-800">Frascos de Alta Gama</p>
+                                <p class="text-xl font-serif text-gray-700">A B C D E F G H I J K L M N O P Q R S T U V W X Y Z</p>
+                                <p class="text-xl font-serif text-gray-700">0 1 2 3 4 5 6 7 8 9 & @ # % * ! ?</p>
+                            </div>
+                            <p class="text-sm text-gray-500 bg-gray-50 p-4 rounded border border-gray-100">
+                                Uso reservado para encabezados (H1, H2), frases destacadas y números grandes. Aporta el carácter Premium al diseño.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Sans Serif -->
+                    <div class="p-8 border border-gray-200 rounded-2xl relative overflow-hidden">
+                        <div class="absolute right-0 top-0 opacity-5 pointer-events-none transform translate-x-1/4 -translate-y-1/4">
+                            <span class="text-[200px] font-sans font-bold leading-none">Aa</span>
+                        </div>
+                        <div class="relative z-10">
+                            <p class="text-sm text-rm-green font-bold uppercase tracking-wider mb-2 font-sans">Cuerpo de Texto & UI</p>
+                            <h3 class="text-3xl font-sans font-bold text-gray-900 mb-4">Inter</h3>
+                            <div class="space-y-4 mb-8">
+                                <p class="text-2xl font-sans font-bold text-gray-900">Soluciones Integrales</p>
+                                <p class="text-lg font-sans font-medium text-gray-800">Envases para perfumería</p>
+                                <p class="text-base font-sans text-gray-700">a b c d e f g h i j k l m n o p q r s t u v w x y z</p>
+                                <p class="text-base font-sans text-gray-700">0 1 2 3 4 5 6 7 8 9 & @ # % * ! ?</p>
+                            </div>
+                            <p class="text-sm text-gray-500 bg-gray-50 p-4 rounded border border-gray-100">
+                                Altamente legible en pantallas. Se usa para descripciones de productos, menús de navegación, botones y textos largos.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand Applications (Mockups) -->
+        <section class="py-24 bg-rm-dark text-white border-t border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold mb-4">Ejemplos de Aplicación</h2>
+                    <p class="text-gray-400">
+                        Visualización de cómo la identidad de marca cobra vida en diferentes formatos y materiales.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Business Card Mockup (HTML/CSS) -->
+                    <div class="flex flex-col gap-4">
+                        <h3 class="text-xl font-bold text-center text-gray-300 font-sans mb-2">Tarjetas de Presentación</h3>
+                        <!-- Frente -->
+                        <div class="w-full aspect-[1.75/1] bg-rm-green rounded shadow-2xl relative overflow-hidden flex items-center justify-center transform transition hover:-translate-y-2 hover:shadow-rm-green/20">
+                            <!-- Patrón sutil -->
+                            <div class="absolute inset-0 opacity-10 bg-pattern-stripes"></div>
+                            <img src="rm-logo1.png" alt="Logo" class="h-16 relative z-10" style="filter: brightness(0) invert(1);">
+                        </div>
+                        <!-- Dorso -->
+                        <div class="w-full aspect-[1.75/1] bg-white text-gray-900 rounded shadow-2xl p-6 flex flex-col justify-between transform transition hover:-translate-y-2">
+                            <div>
+                                <img src="rm-isologo.png" alt="Logo" class="h-8 mb-4">
+                                <h4 class="font-bold text-sm">ROBERTO MENDOZA</h4>
+                                <p class="text-xs text-rm-green font-medium">Director Comercial</p>
+                            </div>
+                            <div class="text-[10px] text-gray-500 space-y-1">
+                                <p>+57 300 000 0000</p>
+                                <p>ventas@rmfragancias.com</p>
+                                <p>Bogotá, Colombia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Perfume Label Mockup -->
+                    <div class="flex flex-col gap-4">
+                        <h3 class="text-xl font-bold text-center text-gray-300 font-sans mb-2">Etiqueta de Frasco</h3>
+                        <div class="w-full h-full min-h-[300px] bg-gray-900 rounded shadow-2xl relative flex items-center justify-center p-8 bg-[url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center group">
+                            <!-- Overlay oscuro -->
+                            <div class="absolute inset-0 bg-black/40 rounded transition group-hover:bg-black/60"></div>
+                            <!-- Etiqueta -->
+                            <div class="relative z-10 w-32 h-40 bg-black/80 backdrop-blur-sm border border-white/20 p-4 flex flex-col items-center justify-between text-center rounded-sm">
+                                <img src="rm-logo1.png" alt="Logo" class="h-8 opacity-90" style="filter: brightness(0) invert(1);">
+                                <div>
+                                    <h4 class="font-serif text-white text-xs tracking-widest mb-1">EAU DE PARFUM</h4>
+                                    <div class="w-6 h-[1px] bg-rm-gold mx-auto mb-1"></div>
+                                    <p class="text-[8px] text-gray-400 tracking-wider">POUR HOMME</p>
+                                </div>
+                                <p class="text-[10px] text-white">50 ml - 1.7 FL.OZ.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instagram Ad Mockup -->
+                    <div class="flex flex-col gap-4">
+                        <h3 class="text-xl font-bold text-center text-gray-300 font-sans mb-2">Social Media (Instagram)</h3>
+                        <div class="w-full max-w-[300px] mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-800">
+                            <!-- Header -->
+                            <div class="p-3 flex items-center gap-3 border-b border-gray-100">
+                                <div class="w-8 h-8 rounded-full bg-rm-green flex items-center justify-center p-1.5">
+                                    <img src="rm-logo1.png" alt="Avatar" class="w-full object-contain" style="filter: brightness(0) invert(1);">
+                                </div>
+                                <span class="font-bold text-xs text-gray-900">rmfragancias</span>
+                                <span class="ml-auto text-gray-400">•••</span>
+                            </div>
+                            <!-- Imagen post -->
+                            <div class="aspect-square bg-gray-100 relative">
+                                <img src="sultan.png" alt="Post" class="w-full h-full object-cover p-8 mix-blend-multiply">
+                                <div class="absolute top-4 right-4 bg-rm-green text-white text-[10px] font-bold px-2 py-1 rounded-sm shadow">
+                                    B2B EXCLUSIVO
+                                </div>
+                            </div>
+                            <!-- Acciones y Caption -->
+                            <div class="p-3">
+                                <div class="flex gap-4 mb-2 text-gray-900">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                    <svg class="w-5 h-5 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                                </div>
+                                <p class="text-xs text-gray-900 leading-tight">
+                                    <span class="font-bold mr-1">rmfragancias</span>Eleva tu marca al siguiente nivel. Descubre nuestro nuevo envase 'Sultan' 50ml en vidrio esmerilado de alta gama. Cotiza ventas al por mayor en el link de nuestra bio. #EnvasesParaPerfumes #PerfumeriaColombia
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="rm-logo1.png" alt="RM Logo" class="h-10 opacity-50" style="filter: brightness(0) invert(1);">
+                </div>
+
+                <div class="text-center md:text-left text-gray-400 text-sm mb-6 md:mb-0">
+                    <p>&copy; 2024 RM Fragancias y Envases. Todos los derechos reservados.</p>
+                    <p class="mt-1">Contacto: info@rmfragancias.com | Tel: +123 456 7890</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.classList.add('preloader-hidden');
+                document.body.classList.remove('overflow-hidden');
+            }, 1000); // 0.6s animation + buffer
+        });
+    </script>
+</body>
+</html>
