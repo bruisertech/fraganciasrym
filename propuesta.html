@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RM Fragancias y Envases</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rm-green': '#006039',
+                        'rm-bg': '#F9FAFB',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* CSS reset and base styles */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #F9FAFB;
+            color: #111827;
+            overflow-x: hidden;
+        }
+
+        /* Preloader Styles */
+        #preloader {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+            backdrop-filter: blur(5px);
+        }
+
+        .preloader-hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .logo-container {
+            position: relative;
+            height: 120px;
+            /* Aspect ratio of the original images is 2000/1446 = 1.383 */
+            width: 166px;
+            overflow: hidden;
+        }
+
+        .logo-r, .logo-m {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            /* Use a block display and avoid object-fit which can recenter depending on transparent boundaries */
+            display: block;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+        .logo-r {
+            /* Full image as background, ensure it covers exactly */
+            background-image: url('ralone.png');
+            /* Filter to turn the green R white */
+            filter: brightness(0) invert(1);
+        }
+
+        .logo-m {
+            background-image: url('malone.png');
+            /* Slide in animation from right */
+            transform: translateX(100%);
+            animation: slideInM 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes slideInM {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body class="overflow-hidden">
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="logo-container">
+            <div class="logo-r"></div>
+            <div class="logo-m"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Header -->
+    <header class="sticky top-0 z-50 bg-rm-green shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html">
+                        <img class="h-12 w-auto" src="rm-isologo.png" alt="RM Fragancias y Envases" style="filter: brightness(0) invert(1);">
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">INICIO</a>
+                    <a href="tienda.html" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">TIENDA</a>
+                    <a href="propuesta.html" class="text-green-200 border-b-2 border-green-200 px-3 py-2 text-sm font-medium transition-colors">PROPUESTA</a>
+                    <a href="#" class="text-white hover:text-gray-200 px-3 py-2 text-sm font-medium transition-colors">MANUAL DE MARCA</a>
+
+                    <!-- WhatsApp Icon -->
+                    <a href="#" class="text-white hover:text-green-400 transition-colors">
+                        <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </a>
+                </nav>
+
+                <!-- Mobile menu button -->
+                <div class="flex items-center md:hidden">
+                    <a href="#" class="text-white hover:text-green-400 mr-4">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                    </a>
+                    <button type="button" class="text-white hover:text-gray-200 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="md:hidden hidden bg-rm-green border-t border-green-800" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="index.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">INICIO</a>
+                <a href="tienda.html" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">TIENDA</a>
+                <a href="propuesta.html" class="bg-green-800 text-white block px-3 py-2 rounded-md text-base font-medium">PROPUESTA</a>
+                <a href="#" class="text-white hover:bg-green-800 block px-3 py-2 rounded-md text-base font-medium">MANUAL DE MARCA</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Hero Proposal Section -->
+        <section class="bg-rm-green py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl font-extrabold text-white sm:text-5xl md:text-6xl tracking-tight mb-6">
+                    Propuesta Web Integral
+                </h1>
+                <p class="mt-4 max-w-2xl text-xl text-green-100 mx-auto">
+                    Potencia tu presencia digital y aumenta tus ventas con un ecosistema web diseñado específicamente para el sector de envases y perfumería B2B en Colombia.
+                </p>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        Nuestra Estrategia de Servicios
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-500">
+                        Soluciones enfocadas en conversión y posicionamiento de marca.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service 1 -->
+                    <div class="bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-rm-green mb-6">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Diseño Web Premium</h3>
+                        <p class="text-gray-600">
+                            Arquitectura modular moderna, optimizada para móviles y estructurada para resaltar envases y fragancias de lujo.
+                        </p>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-rm-green mb-6">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Campañas Publicitarias</h3>
+                        <p class="text-gray-600">
+                            Estrategias dirigidas para atraer a tu cliente ideal, maximizando el retorno de inversión y el reconocimiento en el sector.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-rm-green mb-6">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Píxel de Meta Ads</h3>
+                        <p class="text-gray-600">
+                            Integración completa de herramientas de seguimiento para recolectar datos de alta calidad y realizar retargeting preciso.
+                        </p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="bg-gray-50 rounded-xl p-8 text-center hover:shadow-lg transition-shadow duration-300">
+                        <div class="inline-flex items-center justify-center h-16 w-16 rounded-full bg-green-100 text-rm-green mb-6">
+                            <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Optimización CRO</h3>
+                        <p class="text-gray-600">
+                            Mejora continua de las tasas de conversión (CRO) para convertir a más visitantes de la web en clientes consolidados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Market Analysis Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col lg:flex-row">
+                    <div class="lg:w-1/2 p-10 lg:p-14 flex flex-col justify-center">
+                        <h2 class="text-sm font-bold tracking-wide uppercase text-rm-green mb-2">Visión Experta</h2>
+                        <h3 class="text-3xl font-extrabold text-gray-900 mb-6">El Sector de Fragancias y Envases en Colombia</h3>
+                        <div class="space-y-6 text-lg text-gray-600">
+                            <p>
+                                Como expertos en el desarrollo de soluciones digitales para la industria perfumera, entendemos que en Colombia la competencia es voraz. Para destacar, no basta con tener buenos productos; es indispensable <strong class="text-gray-900">superar a la competencia mediante una presentación visual de lujo</strong> que transmita la calidad y exclusividad de tus envases premium desde el primer clic.
+                            </p>
+                            <p>
+                                El entorno B2B moderno exige agilidad. Una arquitectura web sólida permite tener tu <strong class="text-gray-900">página activa 24/7</strong>, actuando como el mejor vendedor de tu equipo. Este ecosistema digital ininterrumpido es el beneficio principal para escalar ventas tanto B2B como B2C, permitiendo que tu catálogo y manual de marca estén siempre disponibles para prospectos calificados en todo momento y en cualquier lugar.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2 bg-gray-200 relative min-h-[400px]">
+                        <img src="rm-logo1.png" alt="RM Logo Background" class="absolute inset-0 w-full h-full object-cover opacity-20 filter grayscale mix-blend-multiply">
+                        <div class="absolute inset-0 bg-rm-green opacity-10"></div>
+                        <img src="https://images.unsplash.com/photo-1608528577891-eb0559ec1148?auto=format&fit=crop&q=80&w=800&h=800" alt="Envases Premium" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-60">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="py-24 bg-white" id="planes">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        Planes de Inversión
+                    </h2>
+                    <p class="mt-4 text-xl text-gray-500">
+                        Elige el plan que mejor se adapte al crecimiento de tu marca.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- Plan Básico -->
+                    <div class="bg-gray-50 rounded-2xl border border-gray-200 shadow-sm flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="p-8 pb-0">
+                            <h3 class="text-2xl font-bold text-gray-900">Plan Básico</h3>
+                            <p class="mt-4 text-gray-500 min-h-[48px]">Ideal para marcas que buscan establecer su presencia inicial.</p>
+                            <div class="mt-6 flex items-baseline text-4xl font-extrabold text-gray-900">
+                                $2.000.000
+                                <span class="ml-1 text-xl font-medium text-gray-500">COP</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between p-8 pt-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-700">Diseño Gráfico</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-700">Manual de Marca</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-700">Landing Page Full Responsive</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-700">Botón de WhatsApp Integrado</p>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <a href="https://wa.me/573053862774?text=hola%20elegi%20la%20propuesta" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-rm-green hover:bg-green-800 transition-colors">
+                                    Elegir Básico
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plan Pro -->
+                    <div class="bg-white rounded-2xl border-2 border-rm-green shadow-xl flex flex-col relative transform lg:-translate-y-4">
+                        <div class="absolute top-0 inset-x-0 transform -translate-y-1/2 flex justify-center">
+                            <span class="inline-flex rounded-full bg-rm-green px-4 py-1 text-sm font-semibold tracking-wider text-white uppercase">
+                                Más Popular
+                            </span>
+                        </div>
+                        <div class="p-8 pb-0">
+                            <h3 class="text-2xl font-bold text-gray-900">Plan Pro</h3>
+                            <p class="mt-4 text-gray-500 min-h-[48px]">La solución completa para escalar y vender online.</p>
+                            <div class="mt-6 flex items-baseline text-4xl font-extrabold text-gray-900">
+                                $4.500.000
+                                <span class="ml-1 text-xl font-medium text-gray-500">COP</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between p-8 pt-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base font-semibold text-gray-900">Todo del Plan Básico</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-700">Tienda completa (WooCommerce / Shopify)</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-700">Configuración total de pasarelas de pago</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-rm-green" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-700">Soporte técnico dedicado</p>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <a href="https://wa.me/573053862774?text=hola%20elegi%20la%20propuesta" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-rm-green hover:bg-green-800 transition-colors shadow-lg shadow-green-900/20">
+                                    Elegir Pro
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plan Elite -->
+                    <div class="bg-gray-900 rounded-2xl border border-gray-800 shadow-sm flex flex-col hover:shadow-xl transition-shadow duration-300">
+                        <div class="p-8 pb-0">
+                            <h3 class="text-2xl font-bold text-white">Plan Elite</h3>
+                            <p class="mt-4 text-gray-400 min-h-[48px]">Ecosistema premium para marcas de alto impacto.</p>
+                            <div class="mt-6 flex items-baseline text-4xl font-extrabold text-white">
+                                $7.000.000
+                                <span class="ml-1 text-xl font-medium text-gray-500">COP</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex flex-col justify-between p-8 pt-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base font-semibold text-gray-200">Todo del Plan Pro</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-300">Capacidad para +3000 productos</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-300">Desarrollo Completo a medida</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-300">Estudio de Mercado personalizado</p>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="flex-shrink-0">
+                                        <svg class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                        </svg>
+                                    </div>
+                                    <p class="ml-3 text-base text-gray-300">Acompañamiento Web VIP</p>
+                                </li>
+                            </ul>
+                            <div class="mt-8">
+                                <a href="https://wa.me/573053862774?text=hola%20elegi%20la%20propuesta" target="_blank" rel="noopener noreferrer" class="block w-full text-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-gray-900 bg-white hover:bg-gray-100 transition-colors">
+                                    Elegir Elite
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <img src="rm-logo1.png" alt="RM Logo" class="h-10 opacity-50" style="filter: brightness(0) invert(1);">
+                </div>
+
+                <div class="text-center md:text-left text-gray-400 text-sm mb-6 md:mb-0">
+                    <p>&copy; 2024 RM Fragancias y Envases. Todos los derechos reservados.</p>
+                    <p class="mt-1">Contacto: info@rmfragancias.com | Tel: +123 456 7890</p>
+                </div>
+
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">Facebook</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">Instagram</span>
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Preloader Logic
+        window.addEventListener('load', () => {
+            // Wait for the animation to finish (0.6s + a small buffer)
+            // Faster preloader for proposal page
+        setTimeout(() => {
+                const preloader = document.getElementById('preloader');
+                preloader.classList.add('preloader-hidden');
+                document.body.classList.remove('overflow-hidden');
+            }, 600);
+        });
+    </script>
+</body>
+</html>
