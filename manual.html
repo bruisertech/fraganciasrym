@@ -618,19 +618,19 @@
         </section>
 
         <!-- Brand Applications (Mockups) -->
-        <section class="py-24 bg-rm-dark text-white border-t border-gray-800">
+        <section class="py-24 bg-rm-bg text-gray-900 border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
                     <h2 class="text-4xl font-bold mb-4">Ejemplos de Aplicación</h2>
-                    <p class="text-gray-400">
+                    <p class="text-gray-600">
                         Visualización de cómo la identidad de marca cobra vida en diferentes formatos y materiales.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                     <!-- Business Card Mockup (HTML/CSS) -->
                     <div class="flex flex-col gap-4">
-                        <h3 class="text-xl font-bold text-center text-gray-300 font-sans mb-2">Tarjetas de Presentación</h3>
+                        <h3 class="text-xl font-bold text-center text-gray-800 font-sans mb-4">Tarjetas de Presentación</h3>
                         <!-- Frente -->
                         <div class="w-full aspect-[1.75/1] bg-rm-green rounded shadow-2xl relative overflow-hidden flex items-center justify-center transform transition hover:-translate-y-2 hover:shadow-rm-green/20">
                             <!-- Patrón sutil -->
@@ -654,51 +654,63 @@
 
                     <!-- Perfume Label Mockup -->
                     <div class="flex flex-col gap-4">
-                        <h3 class="text-xl font-bold text-center text-gray-300 font-sans mb-2">Etiqueta de Frasco</h3>
-                        <div class="w-full h-full min-h-[300px] bg-gray-900 rounded shadow-2xl relative flex items-center justify-center p-8 bg-[url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center group">
-                            <!-- Overlay oscuro -->
-                            <div class="absolute inset-0 bg-black/40 rounded transition group-hover:bg-black/60"></div>
-                            <!-- Etiqueta -->
-                            <div class="relative z-10 w-32 h-40 bg-black/80 backdrop-blur-sm border border-white/20 p-4 flex flex-col items-center justify-between text-center rounded-sm">
+                        <h3 class="text-xl font-bold text-center text-gray-800 font-sans mb-4">Etiqueta de Frasco</h3>
+                        <div class="w-full h-full min-h-[300px] bg-gray-100 rounded-xl shadow-2xl relative flex items-center justify-center p-8 bg-[url('https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&q=80&w=400')] bg-cover bg-center group overflow-hidden">
+                            <!-- Perspectiva de cristal -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/20 rounded-xl transition-all duration-500"></div>
+
+                            <!-- Etiqueta Integrada con Blend Mode -->
+                            <div class="relative z-10 w-32 h-40 bg-rm-green mix-blend-multiply flex flex-col items-center justify-between text-center rounded-sm py-5 px-3 transform [transform:perspective(1000px)_rotateY(-10deg)] shadow-[inset_0_0_20px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500">
                                 <img src="rm-logo1.png" alt="Logo" class="h-8 opacity-90" style="filter: brightness(0) invert(1);">
                                 <div>
-                                    <h4 class="font-serif text-white text-xs tracking-widest mb-1">EAU DE PARFUM</h4>
-                                    <div class="w-6 h-[1px] bg-rm-gold mx-auto mb-1"></div>
-                                    <p class="text-[8px] text-gray-400 tracking-wider">POUR HOMME</p>
+                                    <h4 class="font-serif text-white text-[10px] tracking-widest mb-1 opacity-90">EAU DE PARFUM</h4>
+                                    <div class="w-6 h-[1px] bg-rm-gold mx-auto mb-1 opacity-80"></div>
+                                    <p class="text-[7px] text-gray-200 tracking-wider opacity-80">POUR HOMME</p>
                                 </div>
-                                <p class="text-[10px] text-white">50 ml - 1.7 FL.OZ.</p>
+                                <p class="text-[9px] text-white opacity-80 font-light">50 ml - 1.7 FL.OZ.</p>
+
+                                <!-- Simulación de brillo de cristal sobre la etiqueta -->
+                                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent w-full h-full transform -skew-x-12 translate-x-4 pointer-events-none mix-blend-overlay"></div>
                             </div>
                         </div>
                     </div>
 
                     <!-- Instagram Ad Mockup -->
                     <div class="flex flex-col gap-4">
-                        <h3 class="text-xl font-bold text-center text-gray-300 font-sans mb-2">Social Media (Instagram)</h3>
-                        <div class="w-full max-w-[300px] mx-auto bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-800">
+                        <h3 class="text-xl font-bold text-center text-gray-800 font-sans mb-4">Social Media (Instagram)</h3>
+                        <div class="w-full max-w-[300px] mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 group">
                             <!-- Header -->
-                            <div class="p-3 flex items-center gap-3 border-b border-gray-100">
-                                <div class="w-8 h-8 rounded-full bg-rm-green flex items-center justify-center p-1.5">
+                            <div class="p-3 flex items-center gap-3 border-b border-gray-50">
+                                <div class="w-8 h-8 rounded-full bg-rm-green flex items-center justify-center p-1.5 ring-2 ring-offset-1 ring-rm-gold">
                                     <img src="rm-logo1.png" alt="Avatar" class="w-full object-contain" style="filter: brightness(0) invert(1);">
                                 </div>
-                                <span class="font-bold text-xs text-gray-900">rmfragancias</span>
-                                <span class="ml-auto text-gray-400">•••</span>
+                                <div class="flex flex-col leading-none">
+                                    <span class="font-bold text-xs text-gray-900">RM Fragancias</span>
+                                    <span class="text-[9px] text-gray-400 mt-0.5">Cali, Colombia</span>
+                                </div>
+                                <span class="ml-auto text-gray-400 cursor-pointer">•••</span>
                             </div>
                             <!-- Imagen post -->
-                            <div class="aspect-square bg-gray-100 relative">
-                                <img src="sultan.png" alt="Post" class="w-full h-full object-cover p-8 mix-blend-multiply">
-                                <div class="absolute top-4 right-4 bg-rm-green text-white text-[10px] font-bold px-2 py-1 rounded-sm shadow">
-                                    B2B EXCLUSIVO
+                            <div class="aspect-square bg-gray-50 relative flex items-center justify-center overflow-hidden">
+                                <div class="absolute inset-0 bg-gradient-to-tr from-gray-200 to-white opacity-50"></div>
+                                <img src="sultan.png" alt="Post" class="w-full h-full object-contain p-4 relative z-10 drop-shadow-xl group-hover:scale-110 transition-transform duration-700">
+                                <div class="absolute top-3 right-3 bg-rm-green text-white text-[9px] font-bold px-2 py-1 rounded shadow-sm z-20 uppercase tracking-widest">
+                                    Nuevo
                                 </div>
                             </div>
                             <!-- Acciones y Caption -->
-                            <div class="p-3">
-                                <div class="flex gap-4 mb-2 text-gray-900">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
-                                    <svg class="w-5 h-5 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
+                            <div class="p-4 bg-white">
+                                <div class="flex gap-4 mb-3 text-gray-800">
+                                    <svg class="w-6 h-6 hover:text-rm-green cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                                    <svg class="w-6 h-6 hover:text-gray-500 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                                    <svg class="w-6 h-6 hover:text-gray-500 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                                    <svg class="w-6 h-6 ml-auto hover:text-gray-500 cursor-pointer transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path></svg>
                                 </div>
-                                <p class="text-xs text-gray-900 leading-tight">
-                                    <span class="font-bold mr-1">rmfragancias</span>Eleva tu marca al siguiente nivel. Descubre nuestro nuevo envase 'Sultan' 50ml en vidrio esmerilado de alta gama. Cotiza ventas al por mayor en el link de nuestra bio. #EnvasesParaPerfumes #PerfumeriaColombia
+                                <p class="text-xs text-gray-600 font-medium mb-2">A 1,204 personas les gusta</p>
+                                <p class="text-xs text-gray-800 leading-relaxed">
+                                    <span class="font-bold mr-1 text-gray-900 cursor-pointer hover:underline">RM Fragancias</span>
+                                    Presentando el nuevo SULTAN, lujo y distinción en cada gota. <br><br>
+                                    <span class="text-rm-green">#Lujo #Perfumería #EnvasesPremium #Colombia</span>
                                 </p>
                             </div>
                         </div>
